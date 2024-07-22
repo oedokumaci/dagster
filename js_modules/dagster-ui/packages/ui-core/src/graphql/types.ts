@@ -3076,6 +3076,7 @@ export type PartitionBackfill = {
   __typename: 'PartitionBackfill';
   assetBackfillData: Maybe<AssetBackfillData>;
   assetSelection: Maybe<Array<AssetKey>>;
+  cancelableRuns: Array<Run>;
   description: Maybe<Scalars['String']['output']>;
   endTimestamp: Maybe<Scalars['Float']['output']>;
   error: Maybe<PythonError>;
@@ -3102,6 +3103,10 @@ export type PartitionBackfill = {
   title: Maybe<Scalars['String']['output']>;
   unfinishedRuns: Array<Run>;
   user: Maybe<Scalars['String']['output']>;
+};
+
+export type PartitionBackfillCancelableRunsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type PartitionBackfillLogEventsArgs = {
@@ -10686,6 +10691,8 @@ export const buildPartitionBackfill = (
         : buildAssetBackfillData({}, relationshipsToOmit),
     assetSelection:
       overrides && overrides.hasOwnProperty('assetSelection') ? overrides.assetSelection! : [],
+    cancelableRuns:
+      overrides && overrides.hasOwnProperty('cancelableRuns') ? overrides.cancelableRuns! : [],
     description:
       overrides && overrides.hasOwnProperty('description')
         ? overrides.description!
