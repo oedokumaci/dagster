@@ -860,7 +860,7 @@ class DbtEventIterator(Generic[T], abc.Iterator):
                 from dagster_cloud.dagster_insights import dbt_with_bigquery_insights
             except ImportError as e:
                 raise DagsterInvalidPropertyError(
-                    "The `dagster_cloud` library is required to use the `with_bigquery_insights`"
+                    "The `dagster_cloud` library is required to use the `with_insights`"
                     " method. Install the library with `pip install dagster-cloud`."
                 ) from e
 
