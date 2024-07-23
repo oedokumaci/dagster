@@ -384,7 +384,7 @@ def test_execute_using_repository_data():
                 {"compute_cacheable_data_called", "get_definitions_called"}
             )
             assert call_counts.get("compute_cacheable_data_called") == "1"
-            assert call_counts.get("get_definitions_called") == "5"
+            assert call_counts.get("get_definitions_called") == "6"
             TestStepHandler.wait_for_processes()
 
             assert any(

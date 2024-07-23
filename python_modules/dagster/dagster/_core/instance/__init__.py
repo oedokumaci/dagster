@@ -1574,6 +1574,13 @@ class DagsterInstance(DynamicPartitionsStore):
                 " asset_check_selection",
             )
 
+        if (
+            asset_selection is None
+            and execution_plan_snapshot
+            and execution_plan_snapshot.asset_selection
+        ):
+            asset_selection = execution_plan_snapshot.asset_selection
+
         # The "python origin" arguments exist so a job can be reconstructed in memory
         # after a DagsterRun has been fetched from the database.
         #

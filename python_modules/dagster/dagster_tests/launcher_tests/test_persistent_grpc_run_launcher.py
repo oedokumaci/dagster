@@ -190,10 +190,10 @@ def test_run_from_pending_repository():
         )
         assert call_counts.get("compute_cacheable_data_called_a") == "1"
         assert call_counts.get("compute_cacheable_data_called_b") == "1"
-        # once at initial load time, once inside the run launch process, once for each (3) subprocess
+        # once at initial load time, twice inside the run launch process (once for full job, once to subset it), once for each (3) subprocess
         # upper bound of 5 here because race conditions result in lower count sometimes
-        assert int(call_counts.get("get_definitions_called_a")) < 6
-        assert int(call_counts.get("get_definitions_called_b")) < 6
+        assert int(call_counts.get("get_definitions_called_a")) < 7
+        assert int(call_counts.get("get_definitions_called_b")) < 7
 
 
 def test_terminate_after_shutdown():
